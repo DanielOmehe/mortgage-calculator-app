@@ -1,29 +1,41 @@
-const InputField = ({ label, emblem, name, handleChange, value }) => {
+const InputField = ({ label, emblem, name, handleChange, value, isComplete }) => {
+    const isError = !value;
+
     return (
         <div className="">
             <label className="text-base">{label}</label>
-            <div className={`${name !== 'amount' ? 'flex-row-reverse' : ""} bg-slate-300 mt-2 flex items-center justify-between border rounded-md overflow-hidden border-slate-500`}>
-                <div className={`flex items-center justify-center text-slate-500 ${name === 'amount' ? "w-1/10" : 'w-3/10'}`}><p className="font-bold text-lg">{emblem}</p></div>
+            <div className={`${name !== 'amount' ? 'flex-row-reverse' : ""} 
+                mt-2 flex items-center justify-between rounded-md overflow-hidden 
+                border ${isError ? 'border-[#C44134] bg-[#C44134]' : 'border-slate-500 bg-slate-300'}`}>
+                <div className={`flex items-center justify-center ${isError ? "text-white" : "text-slate-500"} ${name === 'amount' ? "w-1/10" : 'w-3/10'}`}>
+                    <p className="font-bold text-lg">{emblem}</p>
+                </div>
                 <input
                     type="text"
                     className={`${name === 'amount' ? "w-9/10" : "w-7/10"} bg-white p-3 outline-none`}
                     name={name}
-                    onChange={(e)=> handleChange(e.target.value)}
+                    onChange={(e) => handleChange(e.target.value)}
                     value={value}
                 />
             </div>
+            {isError && <p className="text-sm text-[#C44134] mt-1">This field is required</p>}
         </div>
     )
 }
 
 export default InputField
 
-export const RadioInput = ({ label, value, checked, onChange }) => {
+export const RadioInput = ({ label, value, checked, onChange, isComplete, showError }) => {
+    const isError = !isComplete && showError;
+
+    console.log(isComplete, showError);
+    
+
     return (
         <label
             htmlFor={value}
-            className={`flex items-center justify-start gap-4 p-3 border rounded-md cursor-pointer mb-4 transition-colors duration-200 ${checked ? 'border-[#CEDD06] bg-[#F9FBE7]' : 'border-slate-300 bg-white'
-                }`}
+            className={`flex items-center justify-start gap-4 p-3 border rounded-md cursor-pointer mt-3 transition-colors duration-200 
+            ${checked ? 'border-[#CEDD06] bg-[#F9FBE7]' : isError ? 'border-red-500 bg-[#C44134]' : 'border-slate-300 bg-white'}`}
         >
             <input
                 type="radio"
