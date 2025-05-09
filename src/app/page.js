@@ -20,21 +20,16 @@ export default function Home() {
       currency: "GBP",
     }).format(number);
 
-  console.log(mortgageType);
-
-
-  console.log(typeof rate, typeof amount, typeof years);
-
   return (
-    <main className={`${plus_Jakarta_Sans.className} w-full h-screen bg-[#E8F4F9] flex gap-[32px] justify-center lg:items-center sm:items-start text-[#132830]`}>
-      <section className="w-2/3 bg-white shadow-lg overflow-hidden rounded-2xl h-content grid grid-cols-2">
+    <main className={`${plus_Jakarta_Sans.className} w-full h-fit lg:h-screen bg-[#E8F4F9] flex gap-[32px] justify-center lg:items-center sm:items-start text-[#132830]`}>
+      <section className="w-full lg:w-2/3 bg-white shadow-lg overflow-hidden lg:rounded-2xl h-content grid lg:grid-cols-2 grid-cols-1">
         <div className="p-6">
-          <div className="w-full flex items-center justify-between mb-8">
-            <h1 className="font-bold text-xl">Mortgage Calculator</h1>
+          <div className="w-full lg:flex items-center justify-between mb-8">
+            <h1 className="font-bold text-2xl text-[#132830] mb-2 lg:text-xl">Mortgage Calculator</h1>
             <button className="underline text-base font-semibold text-slate-500 cursor-pointer" onClick={clearForm}>Clear all</button>
           </div>
           <InputField name={'amount'} emblem={"£"} label={"Mortgage Amount"} handleChange={setAmount} value={amount} isComplete={isComplete} />
-          <div className="w-full flex items-center justify-between mt-6 gap-4">
+          <div className="w-full lg:flex items-center justify-between mt-6 gap-4">
             <InputField name={'term'} emblem={"years"} label={"Mortgage Term"} handleChange={setYears} value={years} isComplete={isComplete} />
             <InputField name={'rate'} emblem={"%"} label={"Interest Rate"} handleChange={setRate} value={rate} isComplete={isComplete} />
           </div>
@@ -60,12 +55,12 @@ export default function Home() {
               <p className="text-sm text-[#C44134] mt-1">This field is required</p>
             )}
           </div>
-          <button className="mt-8 flex gap-3 bg-[#CEDD06] px-8 py-3 rounded-4xl cursor-pointer" onClick={calculateMortgage}>
+          <button className="mt-8 w-full flex justify-center gap-3 bg-[#CEDD06] px-8 py-3 rounded-4xl cursor-pointer" onClick={calculateMortgage}>
             <img src="/images/icon-calculator.svg" alt="calculator" />
             <p className="font-bold text-base capitalize">calculate repayments</p>
           </button>
         </div>
-        <div className="p-12 bg-slate-700 rounded-bl-[5rem]">
+        <div className="p-12 bg-slate-700 lg:rounded-bl-[5rem]">
           {
             isComplete ?
               <div className="">
