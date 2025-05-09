@@ -4,6 +4,7 @@ import InputField from "@/components/inputField";
 import { RadioInput } from "@/components/inputField";
 import useStore from "./useStore";
 import { MORTGAGE_TYPES } from "./useStore";
+import Image from "next/image";
 
 const plus_Jakarta_Sans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -56,7 +57,7 @@ export default function Home() {
             )}
           </div>
           <button className="mt-8 w-full flex justify-center gap-3 bg-[#CEDD06] px-8 py-3 rounded-4xl cursor-pointer" onClick={calculateMortgage}>
-            <img src="/images/icon-calculator.svg" alt="calculator" />
+            <Image src="/images/icon-calculator.svg" alt="calculator" width={25} height={25} />
             <p className="font-bold text-base capitalize">calculate repayments</p>
           </button>
         </div>
@@ -78,7 +79,7 @@ export default function Home() {
                 </div>
               </div> :
               <div className="px-14 h-full w-full text-center flex flex-col items-center justify-center">
-                <img src="/images/illustration-empty.svg" alt="illustration" className="mx-auto" />
+                <Image src="/images/illustration-empty.svg" alt="illustration" className="mx-auto" width={200} height={300} />
                 <h2 className="font-bold text-white capitalize mt-3">results shown here</h2>
                 <p className="text-base text-[#7893A0] text-sm mt-2 font-semibold">Complete the form and click "calculate repayments" to see what your monthly repayment will be</p>
               </div>
