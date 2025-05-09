@@ -1,5 +1,9 @@
+import useStore from "@/app/useStore";
+import { use } from "react";
+
 const InputField = ({ label, emblem, name, handleChange, value, isComplete }) => {
-    const isError = !value;
+
+    const { isError } = useStore();
 
     return (
         <div className="">
@@ -25,17 +29,13 @@ const InputField = ({ label, emblem, name, handleChange, value, isComplete }) =>
 
 export default InputField
 
-export const RadioInput = ({ label, value, checked, onChange, isComplete, showError }) => {
-    const isError = !isComplete && showError;
-
-    console.log(isComplete, showError);
-    
-
+export const RadioInput = ({ label, value, checked, onChange, }) => {
+    const { isError } = useStore()
     return (
         <label
             htmlFor={value}
             className={`flex items-center justify-start gap-4 p-3 border rounded-md cursor-pointer mt-3 transition-colors duration-200 
-            ${checked ? 'border-[#CEDD06] bg-[#F9FBE7]' : isError ? 'border-red-500 bg-[#C44134]' : 'border-slate-300 bg-white'}`}
+            ${checked ? 'border-[#CEDD06] bg-[#F9FBE7]' : isError ? 'border-red-500 bg-white' : 'border-slate-300 bg-white'}`}
         >
             <input
                 type="radio"
@@ -44,7 +44,7 @@ export const RadioInput = ({ label, value, checked, onChange, isComplete, showEr
                 value={value}
                 checked={checked}
                 onChange={(e) => onChange(e.target.value)}
-                className="w-[20px] h-[20px] accent-[#CEDD06]"
+                className={`w-[20px] h-[20px] ${checked ? 'accent-[#CEDD06]' : 'accent-[#CEDD06]'}`}
             />
             <span className="font-semibold text-slate-900">{label}</span>
         </label>
