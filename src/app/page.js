@@ -66,7 +66,7 @@ export default function Home() {
             isComplete ?
               <div className="">
                 <h2 className="font-bold text-white text-xl capitalize mt-3 mb-3">your results</h2>
-                <p className="text-base text-[#A3C2D5] pr-14 mb-10 text-sm mt-2 font-semibold capitalize">{"your results are shown below based on the information you provided. to adjust the results, edit the form and click \"calculate repayment\" again."}</p>
+                <p className="text-base text-[#A3C2D5] pr-14 mb-10 text-sm mt-2 font-semibold capitalize">your results are shown below based on the information you provided. to adjust the results, edit the form and click &quot;calculate repayment&quot; again.</p>
                 <div className="bg-[#132830] w-full p-8 border-[#7893A0] shadow-md mt-4 border-t-4 border-t-[#CEDD06] rounded-md">
                   <div className="w-full pb-6 mb-6 border-b border-b-[#7893A0]">
                     <p className="text-[#A3C2D5] mb-3 text-base">your monthly repayments</p>
@@ -78,10 +78,10 @@ export default function Home() {
                   </div>
                 </div>
               </div> :
-              <div className="px-14 h-full w-full text-center flex flex-col items-center justify-center">
+              <div className="px-6 h-full w-full text-center flex flex-col items-center justify-center">
                 <Image src="/images/illustration-empty.svg" alt="illustration" className="mx-auto" width={200} height={300} />
                 <h2 className="font-bold text-white capitalize mt-3">results shown here</h2>
-                <p className="text-base text-[#7893A0] text-sm mt-2 font-semibold">{"Complete the form and click \"calculate repayments\" to see what your monthly repayment will be"}</p>
+                <p className="text-base text-[#A3C2D5] text-sm mt-2 font-semibold">Complete the form and click &quot; calculate repayments &quot; to see what your monthly repayment will be</p>
               </div>
           }
         </div>
